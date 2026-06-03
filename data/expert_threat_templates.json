@@ -1,0 +1,20 @@
+{
+  "plc_basic": [
+    {
+      "Threat": "Manipulation of hardware or software",
+      "CIA_S": [
+        "I",
+        "A"
+      ],
+      "Comments": "priority"
+    },
+    {
+      "Threat": "Eavesdropping",
+      "CIA_S": [
+        "C",
+        "S"
+      ],
+      "Comments": "priority"
+    }
+  ]
+}

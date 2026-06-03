@@ -1,0 +1,32 @@
+# vdi2182_threat_mapping.yaml
+# Deterministic classification — human-reviewed
+
+objectives:
+  - C
+  - I
+  - A
+  - S
+
+mappings:
+
+  "Manipulation of hardware or software":
+    impacts: [I, A, S]
+
+  "Manipulation of information":
+    impacts: [I, C]
+
+  "Unauthorised access to IT systems":
+    impacts: [C, I, A]
+
+  "Sabotage":
+    impacts: [A, S]
+
+  "Manipulation of communication connections":
+    impacts: [I, A]
+
+  "Insufficient security requirements in procurement":
+    impacts: [C, I, A]
+
+defaults:
+  # Applied when a threat has no explicit mapping yet
+  impacts: []

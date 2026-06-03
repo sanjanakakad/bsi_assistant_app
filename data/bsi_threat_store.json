@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "source": "BSI IT-Grundschutz Compendium 2022",
+    "created_at": "2025-12-17",
+    "extraction_method": "LLM + File Search (verbatim)",
+    "notes": "Threats are stored per IND module exactly as written in BSI."
+  },
+  "modules": {
+    "IND.2.2": {
+      "module_title": "Programmable Logic Controller (PLC)",
+      "threats": [
+        {
+          "threat_id": "T_IND_2_2_01",
+          "title": "Manipulation of hardware or software",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "page": 123,
+            "quote": "Manipulation of hardware or software can compromise..."
+          }
+        },
+        {
+          "threat_id": "T_IND_2_2_02",
+          "title": "Unauthorised access to IT systems",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "page": 124,
+            "quote": "Unauthorised access to IT systems may lead to..."
+          }
+        }
+      ]
+    },
+    "IND.3.1": {
+      "module_title": "ICS Communication and Network Technology",
+      "threats": [
+        {
+          "threat_id": "T_IND_3_1_01",
+          "title": "Manipulation of communication connections",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "page": 210,
+            "quote": "Communication connections may be manipulated..."
+          }
+        }
+      ]
+    },
+    "IND.2.3": {
+      "module_title": "Sensors and Actuators",
+      "threats": [
+        {
+          "threat_id": "T_IND.2.3_01",
+          "title": "- Insufficient Security Requirements in Procurement【4:1†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:1†source】",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "- Insufficient Security Requirements in Procurement【4:1†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:1†source】"
+          }
+        }
+      ]
+    },
+    "IND.2.4": {
+      "module_title": "Machine",
+      "threats": [
+        {
+          "threat_id": "T_IND.2.4_01",
+          "title": "- Failure or Disruption due to Insufficient Maintenance【4:4†bsi_it_gs_comp_2022.pdf】\n- Targeted manipulations【4:4†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:4†bsi_it_gs_comp_2022.pdf】",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "- Failure or Disruption due to Insufficient Maintenance【4:4†bsi_it_gs_comp_2022.pdf】\n- Targeted manipulations【4:4†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:4†bsi_it_gs_comp_2022.pdf】"
+          }
+        }
+      ]
+    },
+    "IND.3.3": {
+      "module_title": "Industrial Monitoring and Logging",
+      "threats": [
+        {
+          "threat_id": "T_IND.3.3_01",
+          "title": "Not found in the BSI Compendium.",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Not found in the BSI Compendium."
+          }
+        }
+      ]
+    }
+  }
+}

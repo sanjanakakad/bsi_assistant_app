@@ -1,0 +1,24 @@
+ind_modules:
+  - code: IND.1
+    title: Process Control and Automation Technology
+
+  - code: IND.2.1
+    title: General ICS Components
+
+  - code: IND.2.2
+    title: Programmable Logic Controller (PLC)
+
+  - code: IND.2.3
+    title: Sensors and Actuators
+
+  - code: IND.2.4
+    title: Machine
+
+  - code: IND.3.1
+    title: ICS Communication and Network Technology
+
+  - code: IND.3.2
+    title: Remote Maintenance in Industry
+
+  - code: IND.3.3
+    title: Industrial Monitoring and Logging

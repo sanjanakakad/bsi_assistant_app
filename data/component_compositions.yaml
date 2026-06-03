@@ -1,0 +1,142 @@
+# component_compositions.yaml
+# Deterministic engineering model — NO LLM reasoning
+
+compositions:
+
+  # --------------------------------------------------
+  # BASIC PLC (standalone, not networked)
+  # --------------------------------------------------
+  plc_basic:
+    description: >
+      A standalone programmable logic controller without
+      external communication or field devices.
+
+    components:
+      - plc
+
+    bsi_modules:
+      - IND.2.2   # Programmable Logic Controller
+
+    notes:
+      - No network communication assumed
+      - No sensors, actuators, or HMI included
+
+
+  # --------------------------------------------------
+  # PLC WITH FIELD DEVICES
+  # --------------------------------------------------
+  plc_with_field_devices:
+    description: >
+      PLC connected to sensors and actuators, but not
+      connected to higher-level networks or HMIs.
+
+    components:
+      - plc
+      - sensor
+      - actuator
+
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.2.3   # Sensors and Actuators
+
+    notes:
+      - Typical machine-level PLC
+      - No Ethernet or remote access assumed
+
+
+  # --------------------------------------------------
+  # CONNECTED PLC (ICS NETWORK)
+  # --------------------------------------------------
+  plc_connected:
+    description: >
+      PLC connected to an industrial communication network
+      (e.g. Ethernet, fieldbus) but without HMI or safety PLC.
+
+    components:
+      - plc
+      - switch
+
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.3.1   # ICS Communication and Network Technology
+
+    notes:
+      - Enables network-based threats
+      - No operator interface assumed
+
+
+  # --------------------------------------------------
+  # PLC WITH HMI
+  # --------------------------------------------------
+  plc_with_hmi:
+    description: >
+      PLC connected to a human-machine interface for
+      monitoring and control.
+
+    components:
+      - plc
+      - hmi
+      - switch
+
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.3.1   # ICS Communication
+      - IND.2.1   # General ICS Components (HMI context)
+
+    notes:
+      - Operator interaction present
+      - Increased risk of misuse or misconfiguration
+
+
+  # --------------------------------------------------
+  # PLC WITH SAFETY PLC
+  # --------------------------------------------------
+  plc_with_safety_plc:
+    description: >
+      PLC setup including a dedicated safety PLC for
+      safety-related functions.
+
+    components:
+      - plc
+      - safety_plc
+      - sensor
+      - actuator
+
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.2.3   # Sensors and Actuators
+      - IND.2.4   # Machine (safety context)
+
+    notes:
+      - Safety-related control paths exist
+      - Safety objectives must be considered separately
+
+
+  # --------------------------------------------------
+  # FULL ICS CELL (your diagram)
+  # --------------------------------------------------
+  ics_cell_complete:
+    description: >
+      Complete industrial control cell including PLC,
+      safety PLC, sensors, actuators, HMI, control system,
+      and network infrastructure.
+
+    components:
+      - plc
+      - safety_plc
+      - sensor
+      - actuator
+      - hmi
+      - control_system
+      - switch
+
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.2.3   # Sensors and Actuators
+      - IND.2.4   # Machine
+      - IND.3.1   # ICS Communication and Network Technology
+      - IND.3.3   # Industrial Monitoring and Logging
+
+    notes:
+      - Highest threat surface
+      - Combines multiple security domains

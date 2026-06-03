@@ -1,0 +1,23 @@
+canonical:
+  "Programmable Logic Controller (PLC)":
+    - "plc"
+    - "sps"
+    - "s7"
+    - "siemens s7"
+    - "controller"
+
+  "Sensors and Actuators":
+    - "sensor"
+    - "sensors"
+    - "actuator"
+    - "actuators"
+
+  "Machine":
+    - "machine"
+    - "robot"
+    - "cnc"
+
+  "Remote Maintenance":
+    - "remote maintenance"
+    - "remote access"
+    - "vpn access"
