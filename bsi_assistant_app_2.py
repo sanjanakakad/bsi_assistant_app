@@ -5,6 +5,7 @@
 # Phase 5: Expert customization (data_editor)
 
 import os
+import sys
 import time
 import re
 import yaml
@@ -14,6 +15,15 @@ import streamlit as st
 import pandas as pd
 from openai import OpenAI
 from dotenv import load_dotenv
+
+# Make the app importable/runnable regardless of the current working directory
+# (e.g. when deployed from a subfolder on Streamlit Cloud, where CWD is the repo
+# root rather than this file's folder). This puts `engine` and the data files on
+# a known base path.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+if _HERE not in sys.path:
+    sys.path.insert(0, _HERE)
+
 from engine.logic import (
     split_components,
     map_to_ind,
@@ -147,26 +157,20 @@ st.markdown(
 load_dotenv()
 
 
-def _has_secrets_file():
-    """True if a Streamlit secrets.toml exists (home or project .streamlit/)."""
-    return os.path.exists(os.path.expanduser("~/.streamlit/secrets.toml")) or \
-        os.path.exists(os.path.join(os.getcwd(), ".streamlit", "secrets.toml"))
-
-
 def get_secret(name, default=None):
     """Resolve config from the environment / .env first (local dev), then from
-    st.secrets — but only touch st.secrets when a secrets.toml actually exists,
-    so local runs don't emit the noisy 'No secrets files found' message.
+    st.secrets (Streamlit Cloud). Env-first means a local run with a .env never
+    touches st.secrets (avoiding the noisy 'No secrets files found' message); on
+    Cloud the env is empty so it falls through to the dashboard secrets.
     """
     val = os.getenv(name)
     if val is not None:
         return val
-    if _has_secrets_file():
-        try:
-            if name in st.secrets:
-                return st.secrets[name]
-        except Exception:
-            pass
+    try:
+        if name in st.secrets:
+            return st.secrets[name]
+    except Exception:
+        pass
     return default
 
 
@@ -175,12 +179,12 @@ client = OpenAI(api_key=OPENAI_API_KEY) if OPENAI_API_KEY else OpenAI()
 
 ASSISTANT_ID = get_secret("OPENAI_ASSISTANT_ID")
 
-SYNONYMS_FILE = "data/synonyms_2022.yaml"
-IND_MODULES_FILE = "data/ind_modules_2022.yaml"
-COMPOSITIONS_FILE = "data/component_compositions.yaml"
-THREAT_STORE_FILE = "data/bsi_threat_store.json"
-VDI_MAPPING_FILE = "data/vdi2182_threat_mapping.yaml"
-EXPERT_STORE_FILE = "data/expert_threat_templates.json"
+SYNONYMS_FILE = os.path.join(_HERE, "data/synonyms_2022.yaml")
+IND_MODULES_FILE = os.path.join(_HERE, "data/ind_modules_2022.yaml")
+COMPOSITIONS_FILE = os.path.join(_HERE, "data/component_compositions.yaml")
+THREAT_STORE_FILE = os.path.join(_HERE, "data/bsi_threat_store.json")
+VDI_MAPPING_FILE = os.path.join(_HERE, "data/vdi2182_threat_mapping.yaml")
+EXPERT_STORE_FILE = os.path.join(_HERE, "data/expert_threat_templates.json")
 
 if not ASSISTANT_ID:
     st.error("OPENAI_ASSISTANT_ID not found in .env")
@@ -398,7 +402,7 @@ if "messages" not in st.session_state:
 # --------------------------------------------------
 # SIDEBAR
 # --------------------------------------------------
-st.sidebar.image("image.png", width=265)
+st.sidebar.image(os.path.join(_HERE, "image.png"), width=265)
 st.sidebar.markdown('<div class="side-brand">BSI Assistant</div>', unsafe_allow_html=True)
 st.sidebar.markdown('<div class="side-label">Architecture analysis</div>', unsafe_allow_html=True)
 arch = st.sidebar.selectbox(
