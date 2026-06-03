@@ -1,48 +1,13 @@
 # Secrets — never commit
 .env
 .env.*
-!.env.example
+.streamlit/secrets.toml
 
 # Python
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-dist/
-build/
-.eggs/
-
-# Virtual environments
+*.pyc
 .venv/
-venv/
-env/
 
-# IDE / OS
-.DS_Store
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
-
-# Local RAG pipeline (not used by bsi_assistant_app_2)
-index/
-pdfs/
-
-# Development copies and legacy scripts
-Share/
-data_old/
-app.py
-Final.py
-bsi_assistant_app.py
-bsi_assistant_app_1.py
-index_builder.py
-engine/
-
-# Streamlit local secrets (use Cloud dashboard instead)
-.streamlit/secrets.toml
+# Backups / scratch
+*.bak
+*.backup
