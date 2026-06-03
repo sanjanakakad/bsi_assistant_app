@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .file { fill: #e6f4ea; stroke: #137333; stroke-width: 2; rx: 8; }
+      .core { fill: #e8f0fe; stroke: #1f4e79; stroke-width: 2; rx: 12; }
+      .title { font-size: 18px; font-weight: bold; fill: #1f4e79; }
+      .label { font-size: 12px; fill: #202124; font-weight: bold; }
+      .small { font-size: 10px; fill: #5f6368; }
+    </style>
+  </defs>
+  <text x="450" y="28" text-anchor="middle" class="title">Data Layer - Static Knowledge Files</text>
+
+  <rect x="320" y="55" width="260" height="70" class="core"/>
+  <text x="450" y="85" text-anchor="middle" class="label">bsi_assistant_app_2.py</text>
+  <text x="450" y="105" text-anchor="middle" class="small">Loads all files at startup</text>
+
+  <rect x="30" y="170" width="190" height="65" class="file"/>
+  <text x="125" y="195" text-anchor="middle" class="label">synonyms_2022.yaml</text>
+  <text x="125" y="213" text-anchor="middle" class="small">Component name aliases</text>
+
+  <rect x="240" y="170" width="190" height="65" class="file"/>
+  <text x="335" y="195" text-anchor="middle" class="label">ind_modules_2022.yaml</text>
+  <text x="335" y="213" text-anchor="middle" class="small">Official IND module codes</text>
+
+  <rect x="450" y="170" width="190" height="65" class="file"/>
+  <text x="545" y="195" text-anchor="middle" class="label">component_compositions.yaml</text>
+  <text x="545" y="213" text-anchor="middle" class="small">Architecture to BSI modules</text>
+
+  <rect x="660" y="170" width="210" height="65" class="file"/>
+  <text x="765" y="195" text-anchor="middle" class="label">bsi_threat_store.json</text>
+  <text x="765" y="213" text-anchor="middle" class="small">Pre-extracted BSI threats</text>
+
+  <rect x="150" y="270" width="220" height="65" class="file"/>
+  <text x="260" y="295" text-anchor="middle" class="label">vdi2182_threat_mapping.yaml</text>
+  <text x="260" y="313" text-anchor="middle" class="small">Threat to C / I / A / S flags</text>
+
+  <rect x="530" y="270" width="220" height="65" class="file"/>
+  <text x="640" y="295" text-anchor="middle" class="label">expert_threat_templates.json</text>
+  <text x="640" y="313" text-anchor="middle" class="small">Saved expert customizations</text>
+
+  <line x1="450" y1="125" x2="125" y2="170" stroke="#137333" stroke-width="1.5"/>
+  <line x1="450" y1="125" x2="335" y2="170" stroke="#137333" stroke-width="1.5"/>
+  <line x1="450" y1="125" x2="545" y2="170" stroke="#137333" stroke-width="1.5"/>
+  <line x1="450" y1="125" x2="765" y2="170" stroke="#137333" stroke-width="1.5"/>
+  <line x1="450" y1="125" x2="260" y2="270" stroke="#137333" stroke-width="1.5"/>
+  <line x1="450" y1="125" x2="640" y2="270" stroke="#137333" stroke-width="1.5"/>
+</svg>

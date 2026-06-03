@@ -27,6 +27,51 @@ mappings:
   "Insufficient security requirements in procurement":
     impacts: [C, I, A]
 
+  # --------------------------------------------------
+  # AI-PROPOSED (review) — classifications for titles extracted from
+  # IND.2.1 (General ICS Components) and IND.2.4 (Machine) on 2026-06-04.
+  # Adjust per expert judgement; experts can also override per-architecture
+  # in the app's Phase-5 editor.
+  # --------------------------------------------------
+  "Insecure System Configuration":
+    impacts: [C, I, A]
+  "Insufficient User and Authorisation Management":
+    impacts: [C, I, A]
+  "Insufficient Logging":
+    impacts: [I, A]
+  "Manipulation and Sabotage of an ICS Component":
+    impacts: [I, A, S]
+  "Use of Insecure Protocols":
+    impacts: [C, I, A]
+  "Denial-of-Service (DoS) Attacks":
+    impacts: [A, S]
+  "Malware":
+    impacts: [C, I, A]
+  "Interception of Information/Espionage":
+    impacts: [C]
+  "Manipulated Firmware":
+    impacts: [I, A, S]
+  "Failure or Disruption due to Insufficient Maintenance":
+    impacts: [A, S]
+  "Targeted manipulations":
+    impacts: [I, A, S]
+
+  # IND.2.2 / IND.2.3 / IND.2.7 / IND.3.2 titles (AI-proposed, review)
+  "Incomplete Documentation":
+    impacts: [I, A]
+  "Insufficient Security Requirements in Procurement":
+    impacts: [C, I, A]
+  "Manipulation of the Logic System":
+    impacts: [I, A, S]
+  "Inadequate Monitoring and Detection Procedures":
+    impacts: [A, S]
+  "Incomplete Documentation of Remote Maintenance Access in OT":
+    impacts: [C, A]
+  "Insufficient Availability Due to Dependencies on Office and Building IT":
+    impacts: [A]
+  "Inadequate Regulations for the Use of OT Remote Maintenance Access":
+    impacts: [C, I, A]
+
 defaults:
   # Applied when a threat has no explicit mapping yet
   impacts: []

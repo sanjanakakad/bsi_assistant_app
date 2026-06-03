@@ -1,142 +1,103 @@
 # component_compositions.yaml
-# Deterministic engineering model — NO LLM reasoning
+# Deterministic engineering model — uses ONLY real BSI IND modules
+# (verified against pdfs/bsi_it_gs_comp_2022.pdf on 2026-06-04).
+# Removed the non-existent IND.3.1 / IND.3.3; added IND.2.7 (Safety Instrumented Systems).
 
 compositions:
 
-  # --------------------------------------------------
-  # BASIC PLC (standalone, not networked)
-  # --------------------------------------------------
   plc_basic:
     description: >
-      A standalone programmable logic controller without
-      external communication or field devices.
-
+      A standalone programmable logic controller.
     components:
       - plc
-
     bsi_modules:
-      - IND.2.2   # Programmable Logic Controller
-
+      - IND.2.2   # PLC (inherits IND.2.1 General ICS Components)
     notes:
-      - No network communication assumed
-      - No sensors, actuators, or HMI included
+      - No field devices or external connectivity assumed
 
-
-  # --------------------------------------------------
-  # PLC WITH FIELD DEVICES
-  # --------------------------------------------------
   plc_with_field_devices:
     description: >
-      PLC connected to sensors and actuators, but not
-      connected to higher-level networks or HMIs.
-
+      PLC connected to sensors and actuators.
     components:
       - plc
       - sensor
       - actuator
-
     bsi_modules:
       - IND.2.2   # PLC
       - IND.2.3   # Sensors and Actuators
-
     notes:
       - Typical machine-level PLC
-      - No Ethernet or remote access assumed
 
-
-  # --------------------------------------------------
-  # CONNECTED PLC (ICS NETWORK)
-  # --------------------------------------------------
-  plc_connected:
+  plc_with_safety:
     description: >
-      PLC connected to an industrial communication network
-      (e.g. Ethernet, fieldbus) but without HMI or safety PLC.
-
-    components:
-      - plc
-      - switch
-
-    bsi_modules:
-      - IND.2.2   # PLC
-      - IND.3.1   # ICS Communication and Network Technology
-
-    notes:
-      - Enables network-based threats
-      - No operator interface assumed
-
-
-  # --------------------------------------------------
-  # PLC WITH HMI
-  # --------------------------------------------------
-  plc_with_hmi:
-    description: >
-      PLC connected to a human-machine interface for
-      monitoring and control.
-
-    components:
-      - plc
-      - hmi
-      - switch
-
-    bsi_modules:
-      - IND.2.2   # PLC
-      - IND.3.1   # ICS Communication
-      - IND.2.1   # General ICS Components (HMI context)
-
-    notes:
-      - Operator interaction present
-      - Increased risk of misuse or misconfiguration
-
-
-  # --------------------------------------------------
-  # PLC WITH SAFETY PLC
-  # --------------------------------------------------
-  plc_with_safety_plc:
-    description: >
-      PLC setup including a dedicated safety PLC for
-      safety-related functions.
-
+      PLC with a dedicated Safety Instrumented System (SIS).
     components:
       - plc
       - safety_plc
       - sensor
       - actuator
-
     bsi_modules:
       - IND.2.2   # PLC
       - IND.2.3   # Sensors and Actuators
-      - IND.2.4   # Machine (safety context)
-
+      - IND.2.7   # Safety Instrumented Systems
     notes:
-      - Safety-related control paths exist
-      - Safety objectives must be considered separately
+      - Safety-related control paths present
 
-
-  # --------------------------------------------------
-  # FULL ICS CELL (your diagram)
-  # --------------------------------------------------
-  ics_cell_complete:
+  machine_cell:
     description: >
-      Complete industrial control cell including PLC,
-      safety PLC, sensors, actuators, HMI, control system,
-      and network infrastructure.
-
+      A machine driven by a PLC with field devices.
     components:
       - plc
-      - safety_plc
       - sensor
       - actuator
-      - hmi
-      - control_system
-      - switch
-
+      - machine
     bsi_modules:
       - IND.2.2   # PLC
       - IND.2.3   # Sensors and Actuators
       - IND.2.4   # Machine
-      - IND.3.1   # ICS Communication and Network Technology
-      - IND.3.3   # Industrial Monitoring and Logging
+    notes:
+      - Machine-level production cell
 
+  plc_remote_maintained:
+    description: >
+      PLC reachable for remote maintenance / external access.
+    components:
+      - plc
+      - remote_maintenance
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.3.2   # Remote Maintenance in Industry
+    notes:
+      - External connectivity via remote maintenance
+
+  ics_cell_complete:
+    description: >
+      Complete industrial control cell: PLC, safety PLC, sensors,
+      actuators, machine, and remote maintenance.
+    components:
+      - plc
+      - safety_plc
+      - sensor
+      - actuator
+      - machine
+      - remote_maintenance
+    bsi_modules:
+      - IND.2.2   # PLC
+      - IND.2.3   # Sensors and Actuators
+      - IND.2.4   # Machine
+      - IND.2.7   # Safety Instrumented Systems
+      - IND.3.2   # Remote Maintenance in Industry
     notes:
       - Highest threat surface
-      - Combines multiple security domains
+
+
+# --------------------------------------------------
+# MODULE INHERITANCE (Phase 4)
+# Specific ICS components also carry the threats of the general
+# ICS-component module (IND.2.1 General ICS Components).
+# --------------------------------------------------
+inheritance:
+  IND.2.2: [IND.2.1]   # PLC
+  IND.2.3: [IND.2.1]   # Sensors and Actuators
+  IND.2.4: [IND.2.1]   # Machine
+  IND.2.7: [IND.2.1]   # Safety Instrumented Systems

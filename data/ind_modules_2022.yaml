@@ -1,3 +1,6 @@
+# Authoritative IND module list — verified against pdfs/bsi_it_gs_comp_2022.pdf
+# (BSI IT-Grundschutz Compendium, Edition 2022). These are the only IND modules
+# the document defines. IND.2.5/2.6 were removed pre-2022; IND.3.1/3.3 do NOT exist.
 ind_modules:
   - code: IND.1
     title: Process Control and Automation Technology
@@ -14,11 +17,8 @@ ind_modules:
   - code: IND.2.4
     title: Machine
 
-  - code: IND.3.1
-    title: ICS Communication and Network Technology
+  - code: IND.2.7
+    title: Safety Instrumented Systems
 
   - code: IND.3.2
     title: Remote Maintenance in Industry
-
-  - code: IND.3.3
-    title: Industrial Monitoring and Logging

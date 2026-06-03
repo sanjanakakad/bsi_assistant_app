@@ -1,47 +1,107 @@
 {
   "metadata": {
     "source": "BSI IT-Grundschutz Compendium 2022",
-    "created_at": "2025-12-17",
-    "extraction_method": "LLM + File Search (verbatim)",
-    "notes": "Threats are stored per IND module exactly as written in BSI."
+    "created_at": "2026-06-03",
+    "extraction_method": "OpenAI Assistant + File Search (JSON titles, cleaned)",
+    "notes": "Threat titles parsed and cleaned; citation markers stripped."
   },
   "modules": {
+    "IND.2.1": {
+      "module_title": "General ICS Components",
+      "threats": [
+        {
+          "threat_id": "T_IND_2_1_01",
+          "title": "Insecure System Configuration",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Insecure System Configuration"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_02",
+          "title": "Insufficient User and Authorisation Management",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Insufficient User and Authorisation Management"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_03",
+          "title": "Insufficient Logging",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Insufficient Logging"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_04",
+          "title": "Manipulation and Sabotage of an ICS Component",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Manipulation and Sabotage of an ICS Component"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_05",
+          "title": "Use of Insecure Protocols",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Use of Insecure Protocols"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_06",
+          "title": "Denial-of-Service (DoS) Attacks",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Denial-of-Service (DoS) Attacks"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_07",
+          "title": "Malware",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Malware"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_08",
+          "title": "Interception of Information/Espionage",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Interception of Information/Espionage"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_1_09",
+          "title": "Manipulated Firmware",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Manipulated Firmware"
+          }
+        }
+      ]
+    },
     "IND.2.2": {
       "module_title": "Programmable Logic Controller (PLC)",
       "threats": [
         {
           "threat_id": "T_IND_2_2_01",
-          "title": "Manipulation of hardware or software",
+          "title": "Incomplete Documentation",
           "description": null,
           "citation": {
             "file": "bsi_it_gs_comp_2022.pdf",
-            "page": 123,
-            "quote": "Manipulation of hardware or software can compromise..."
-          }
-        },
-        {
-          "threat_id": "T_IND_2_2_02",
-          "title": "Unauthorised access to IT systems",
-          "description": null,
-          "citation": {
-            "file": "bsi_it_gs_comp_2022.pdf",
-            "page": 124,
-            "quote": "Unauthorised access to IT systems may lead to..."
-          }
-        }
-      ]
-    },
-    "IND.3.1": {
-      "module_title": "ICS Communication and Network Technology",
-      "threats": [
-        {
-          "threat_id": "T_IND_3_1_01",
-          "title": "Manipulation of communication connections",
-          "description": null,
-          "citation": {
-            "file": "bsi_it_gs_comp_2022.pdf",
-            "page": 210,
-            "quote": "Communication connections may be manipulated..."
+            "quote": "Incomplete Documentation"
           }
         }
       ]
@@ -50,12 +110,12 @@
       "module_title": "Sensors and Actuators",
       "threats": [
         {
-          "threat_id": "T_IND.2.3_01",
-          "title": "- Insufficient Security Requirements in Procurement【4:1†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:1†source】",
+          "threat_id": "T_IND_2_3_01",
+          "title": "Insufficient Security Requirements in Procurement",
           "description": null,
           "citation": {
             "file": "bsi_it_gs_comp_2022.pdf",
-            "quote": "- Insufficient Security Requirements in Procurement【4:1†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:1†source】"
+            "quote": "Insufficient Security Requirements in Procurement"
           }
         }
       ]
@@ -64,26 +124,76 @@
       "module_title": "Machine",
       "threats": [
         {
-          "threat_id": "T_IND.2.4_01",
-          "title": "- Failure or Disruption due to Insufficient Maintenance【4:4†bsi_it_gs_comp_2022.pdf】\n- Targeted manipulations【4:4†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:4†bsi_it_gs_comp_2022.pdf】",
+          "threat_id": "T_IND_2_4_01",
+          "title": "Failure or Disruption due to Insufficient Maintenance",
           "description": null,
           "citation": {
             "file": "bsi_it_gs_comp_2022.pdf",
-            "quote": "- Failure or Disruption due to Insufficient Maintenance【4:4†bsi_it_gs_comp_2022.pdf】\n- Targeted manipulations【4:4†bsi_it_gs_comp_2022.pdf】\n\nSources:\n- bsi_it_gs_comp_2022.pdf【4:4†bsi_it_gs_comp_2022.pdf】"
+            "quote": "Failure or Disruption due to Insufficient Maintenance"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_4_02",
+          "title": "Targeted manipulations",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Targeted manipulations"
           }
         }
       ]
     },
-    "IND.3.3": {
-      "module_title": "Industrial Monitoring and Logging",
+    "IND.2.7": {
+      "module_title": "Safety Instrumented Systems",
       "threats": [
         {
-          "threat_id": "T_IND.3.3_01",
-          "title": "Not found in the BSI Compendium.",
+          "threat_id": "T_IND_2_7_01",
+          "title": "Manipulation of the Logic System",
           "description": null,
           "citation": {
             "file": "bsi_it_gs_comp_2022.pdf",
-            "quote": "Not found in the BSI Compendium."
+            "quote": "Manipulation of the Logic System"
+          }
+        },
+        {
+          "threat_id": "T_IND_2_7_02",
+          "title": "Inadequate Monitoring and Detection Procedures",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Inadequate Monitoring and Detection Procedures"
+          }
+        }
+      ]
+    },
+    "IND.3.2": {
+      "module_title": "Remote Maintenance in Industry",
+      "threats": [
+        {
+          "threat_id": "T_IND_3_2_01",
+          "title": "Incomplete Documentation of Remote Maintenance Access in OT",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Incomplete Documentation of Remote Maintenance Access in OT"
+          }
+        },
+        {
+          "threat_id": "T_IND_3_2_02",
+          "title": "Insufficient Availability Due to Dependencies on Office and Building IT",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Insufficient Availability Due to Dependencies on Office and Building IT"
+          }
+        },
+        {
+          "threat_id": "T_IND_3_2_03",
+          "title": "Inadequate Regulations for the Use of OT Remote Maintenance Access",
+          "description": null,
+          "citation": {
+            "file": "bsi_it_gs_comp_2022.pdf",
+            "quote": "Inadequate Regulations for the Use of OT Remote Maintenance Access"
           }
         }
       ]
